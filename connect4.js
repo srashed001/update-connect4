@@ -34,12 +34,25 @@ function makeHtmlBoard() {
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
+  //here we are creating the top row of the game where you click to drop your game piece
+  // we create a new row element and assign it the name top 
+  //we then set its ID atttribute to 'column-top'
+  //finally we assign an eventlistener on the row that calls the function handleClick when user clicks on row
+
   for (var x = 0; x < WIDTH; x++) {
     var headCell = document.createElement("td");
     headCell.setAttribute("id", x);
     top.append(headCell);
   }
+
+  //running a for loop, in this case 7 times (value of WIDTH)
+  //each time we run the loop we are creating a new cell, named 
+  //assigning its ID the value of its index, 
+  //and appending it to the the top row we just created 
   htmlBoard.append(top);
+
+  //taking the new top element we just created, along with all of the appended children 
+  //appending it to the html board 
 
   // TODO: add comment for this code
   for (var y = 0; y < HEIGHT; y++) {
@@ -48,7 +61,14 @@ function makeHtmlBoard() {
       const cell = document.createElement("td");
       cell.setAttribute("id", `${y}-${x}`);
       row.append(cell);
+      //this for loop creates, in this case 6 table data cells in each row
+      //set each individual date set with an ID that corresponds to the row 
+      //id also refereces the index num of that individual cell 
+      //y - refers to index value of the array representing the rows 
+      //x - refers to index value of the array representing the columns 
     }
+
+    
     htmlBoard.append(row);
   }
 }
